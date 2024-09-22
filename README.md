@@ -76,6 +76,10 @@ Cách đặt tên cho biến:
 > - Còn lại thì dùng danh từ
 > - Với dạng danh sách thì nên thêm Suffix List.
 
+**7, Logical Operator:**
+
+3 Logical Operator cơ bản: AND (&&), OR (||), NOT (!)
+
 ### LESSON 2: OPERATORS VÀ CÁC KIỂU DỮ LIỆU TRONG JS
 
 **1, Operators in JavaScript**
@@ -198,3 +202,14 @@ const markString = mark.toString(); //or String(mark)
 const type = '1';
 const typeID = Number.parseInt(type);//or Number(type)
 ```
+
+**3, Truthy và Falsy**
+
+> - Truthy: là những giá trị khi chuyển đổi về boolean thì sẽ được giá trị truth
+> - Falsy: là những giá trị khi chuyển đổi về boolean thì sẽ được giá trị false
+
+Làm sao để xác định được đâu là truthy hay falsy? Với falsy thì ta có một danh sách như bên dưới, ngoài danh sách này thì tất cả đều là truthy:
+
+|false|0|-0|0n|''|""|null|undefined|NaN|document.all|
+
+=> Có thể lên google để tra: fulsy value trên javascript để đọc thêm
