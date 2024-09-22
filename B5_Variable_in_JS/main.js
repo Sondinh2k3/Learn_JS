@@ -2,7 +2,7 @@
     Variables in JavaScript
 
     - What: nơi lưu trữ giá trị tạm lên bộ nhớ
-    - When: nơi cần lưu trữ giá trị
+    - When: khi cần lưu trữ giá trị
     - Why: không có cách khác để lưu tạm giá trị
     - Who: Dev
 

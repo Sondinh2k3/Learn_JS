@@ -33,22 +33,47 @@ console.log('Welcome to Javascript');
 
 **4, Comment**
 
-> - Mẹo viết comment hiệu quả:
->
-> * What: Comments là phần giải thích thêm cho code hiện tại
-> * When: Khi có logic phức tạp, code phức tạp
-> * Where: Viết trước đoạn code cần giải thích
-> * Why: Để hiểu được tại sao mình viết code như vậy khi quay lại sau này
-> * Who: Người nào viết code, thì người đó comment
+Mẹo viết comment hiệu quả:
 
-> - Viết comments như thế nào cho hiệu quả
->
-> * Viết bằng TIẾNG ANH (QUAN TRỌNG)
-> * Cung cấp high-level overview cho cái mình đang làm
-> * Giải thích tại sao cho code hiện tại, chứ không phải giải thích code chạy như thế nào
+> - What: Comments là phần giải thích thêm cho code hiện tại
+> - When: Khi có logic phức tạp, code phức tạp
+> - Where: Viết trước đoạn code cần giải thích
+> - Why: Để hiểu được tại sao mình viết code như vậy khi quay lại sau này
+> - Who: Người nào viết code, thì người đó comment
+
+Viết comments như thế nào cho hiệu quả
+
+> - Viết bằng TIẾNG ANH (QUAN TRỌNG)
+> - Cung cấp high-level overview cho cái mình đang làm
+> - Giải thích tại sao cho code hiện tại, chứ không phải giải thích code chạy như thế nào
 
 **5, Reserved Keywords**
 
 Là những từ khóa được sử dụng với những chức năng đặc biệt, Khi cần tới chức năng nào thì sử dụng từ khóa đó. Đây thuộc bộ Syntax của ngôn ngữ, cần follow theo
 
 > - Lưu ý: Không được đặt tên biến, tên hàm , ... trùng với tên từ khóa.
+
+**6, Variables in JavaScript**
+
+Giống như các ngôn ngữ lập trình khác, JS cũng cần phải có một nơi để lưu trữ giá trị tạm lên bộ nhớ. Khi cần lưu trữ giá trị thì ta sẽ sử dụng các biến.
+
+Cách khai báo biến trong JS:
+
+> - Với ES5 thì dùng var (function scop)
+> - Từ ES6 thì dùng const hoặc let (block scop)
+> - Scope thì mình sẽ tìm hiểu sau
+> - const thì dùng cho hằng số hoặc biến mà không có nhu cầu thay đổi
+> - let thì dùng cho biến có mong muốn thay đổi giá trị
+
+_TIPS: Hãy luôn dùng const cho đến khi cần let_
+
+Cách đặt tên cho biến:
+
+> - Dùng tiếng Anh
+> - Đặt tên để biết biến đó chứa giá trị gì
+> - Không đánh đố nhau, đặt tên một đằng lưu giá trị một nẻo
+> - Với true/false, đặt tên với prefix has hoặc is hoặc show hoặc từ mang ý nghĩa chỉ có nhận giá trị true hoặc false
+> - Còn lại thì dùng danh từ
+> - Với dạng danh sách thì nên thêm Suffix List.
+
+### LESSON 2: OPERATORS VÀ CÁC KIỂU DỮ LIỆU TRONG JS
