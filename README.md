@@ -77,3 +77,80 @@ Cách đặt tên cho biến:
 > - Với dạng danh sách thì nên thêm Suffix List.
 
 ### LESSON 2: OPERATORS VÀ CÁC KIỂU DỮ LIỆU TRONG JS
+
+**1, Operators in JavaScript**
+
+> - Arithmetic Operator - Toán tử số học: a+b; a%b;
+> - Unary Operators - Operator có 1 operand: count++; --number; !error ...
+> - Binary Operators - Operator có 2 operand: a=b; a+b; ...
+> - Ternary Operators - Operator có 3 operand: isShow ? "Show" : "Hide"
+> - Logical Operators - Operator luận lý: a||b; a&&b ...
+> - Bitwise Operators - Operator xử lý bit: a>>b; a|b; ...
+
+**2, Các kiểu dữ liệu trong JavaScript**
+
+> - Number: int or float, integers are limited by +- (2^53 - 1)
+> - bigint: is for integer numbers of arbitrary length.
+> - string: for strings, no single character type
+> - boolean: for true/false
+> - null: for unknown values - a standalone type that has a single value null
+> - undefined: for unassigned values - a standalone type that has a single value undefined
+> - symbol: for unique identifiers
+> - object: NON-Primitive type, used for complex data structure
+
+Có một điều đặc biệt trong JavaScript đó là bạn không cần khai báo kiểu dữ liệu cho biến. Một bién nó có thể thay đổi với bất cứ kiểu dữ liệu nào. Xem ví dụ ở đoạn code dưới:
+
+**_Example:_**
+
+```JavaScript
+let powerfulVar; // count will be undefined
+powerfulVar = 1;
+powerfulVar = "Hello";
+powerfulVar = true;
+powerfulVar = {
+    name: 'Crazy JavaScript =))'
+};
+```
+
+Để xác định một biến nó đang ở kiểu dữ liệu nào tại thời điểm đó, ta sử dụng : typeof operator
+
+### LESSON 3: FUNCTION IN JS
+
+**1, Function in JS**
+
+> - What: tập hợp các lệnh phục vụ một chức năng nhỏ nào đó
+> - When: nhận thấy các dòng lệnh có liên quan tới nhau và có thể tách rời được
+> - Why: Dễ quản lý, dễ học, dễ maintain
+> - Who: Dev
+
+**2, Cách khai báo function:**
+
+```JavaScript
+    function ten_Function(tham_so_ham){
+        //body of Function
+        console.log('Welcome', tham_so_ham);
+    }
+```
+
+**3, Thành phần cấu tạo nên Function:**
+
+> - Từ khóa function:
+> - Tham số hàm (arguments): optional, chỉ nên tối đa 3 tham số
+> - Body
+> - Return Statement: optional
+
+**4, Cách đặt tên cho Function:**
+
+> - Dùng tiếng anh
+> - Dùng động từ vì Function là để thực hiện một nhiệm vụ nào đó
+> - Thường hay dùng với Prefix: create, update, add, check, convert, map, get, ...
+
+**5, Một số lưu ý khi viết function:**
+
+> - Mỗi hàm chỉ làm một nhiệm vụ, và làm thật tốt nhiệm vụ đó
+> - Nên giữ code của một hàm ngắn thôi, dưới 30 dòng code
+> - Trường hợp ngoại lệ nhiều code hơn, tuy nhiên những hàm này ít thôi
+> - Luôn kiểm tra tính hợp lệ của tham số ở đầu hàm
+> - Return kiểu dữ liệu đồng nhất với nhau
+> - Nên có comment cho những logic phức tạp
+> - Chỉ nên có tối đa là 3 tham số truyền vào
