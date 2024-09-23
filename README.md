@@ -588,3 +588,27 @@ _b, Instance Method:_
 '  Easy Frontend       '.trimStart(); // 'Easy Frontend       '
 '  Easy Frontend       '.trimEnd(); //'  Easy Frontend'
 ```
+
+**_Example6: Duyệt chuỗi_**
+
+```JavaScript
+    const name = 'Easy Frontend';
+    for(let i = 0; i < name.length; i++){
+        console.log(name[i]);
+    }
+```
+
+**_Example7: Chuyển đổi hoa thường_**
+
+```JavaScript
+    'Easy Frontend'.toLowerCase(); //easy frontend
+    'Easy Frontend'.toUpperCase(); //EASY FRONTEND
+```
+
+**_Example8: Tìm kiếm chuỗi con_**
+
+```JavaScript
+    const name = 'Hello Po';
+    name.indexOf('o'); //4
+    name.lastIndexOf('o'); //7
+```
