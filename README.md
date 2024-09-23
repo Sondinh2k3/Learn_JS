@@ -509,10 +509,11 @@ const formatName = `My name is ${fullName}`;
 ```
 
 Basic:
-_ Javascript không có kiểu dữ liệu cho từng ký tự, chỉ dùng chung một kiểu dữ liệu là string
-_ String trong JavaScript sử dụng character encoding UTF-16
-_ Mình còn có những loại encoding khác nữa như: ASCII (7 bits), UTF-8 (8 bits), UTF-16 (16 bits), UTF-32 (32 bits)
-_ String is immutable (không thay đổi được) ===> Một khi string đã được sinh ra trong JS thì nó sẽ không thể thay đổi được
+
+- Javascript không có kiểu dữ liệu cho từng ký tự, chỉ dùng chung một kiểu dữ liệu là string
+- String trong JavaScript sử dụng character encoding UTF-16
+- Mình còn có những loại encoding khác nữa như: ASCII (7 bits), UTF-8 (8 bits), UTF-16 (16 bits), UTF-32 (32 bits)
+- String is immutable (không thay đổi được) ===> Một khi string đã được sinh ra trong JS thì nó sẽ không thể thay đổi được
 
 **2, Object String trong JS**
 
