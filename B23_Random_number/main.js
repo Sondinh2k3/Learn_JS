@@ -3,7 +3,7 @@
     1. Random một số ngẫu nhiên trong khoảng [0, n]
     2. Random một số ngẫu nhiên trong khoảng [a, b]
 
-    ===> Gợi ý: Sử dụng hàm Math.Random() để làm việc này. Nhưng hàm này chỉ trả về trong khoảng [0, 1)
+    ===> Gợi ý: Sử dụng hàm Math.random() để làm việc này. Nhưng hàm này chỉ trả về trong khoảng [0, 1)
 
 
 */

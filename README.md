@@ -492,3 +492,98 @@ Math - Built - in objects for mathematical constants and functions
 - Math.sqrt(x): Hàm lấy căn bậc 2 của x
 
 LƯU Ý: Math chỉ làm việc với kiểu Number, chứ không làm việc với kiểu BigInt
+
+### LESSON 8: STRING
+
+**1, Tổng quan về string:**
+
+- Cách khai báo string trong JS: chỉ cần sử dụng một dấu nháy đơn hoặc nháy kép
+- Sử dụng dấu backticks (dấu huyền) để có thể gán các biến vào chuỗi
+
+**_Example_**
+
+```JavaScript
+const name = 'Son';
+const fullName = "Le Dinh Son";
+const formatName = `My name is ${fullName}`;
+```
+
+Basic:
+_ Javascript không có kiểu dữ liệu cho từng ký tự, chỉ dùng chung một kiểu dữ liệu là string
+_ String trong JavaScript sử dụng character encoding UTF-16
+_ Mình còn có những loại encoding khác nữa như: ASCII (7 bits), UTF-8 (8 bits), UTF-16 (16 bits), UTF-32 (32 bits)
+_ String is immutable (không thay đổi được) ===> Một khi string đã được sinh ra trong JS thì nó sẽ không thể thay đổi được
+
+**2, Object String trong JS**
+
+_a, Instance Properties:_
+
+```JavaScript
+const name = 'Easy Frontend';
+name.length; //13 (read-only)
+```
+
+_b, Instance Method:_
+
+- charAt(index): Lấy ký tự tại vị trí index
+- concat(str[, ...strN]): Nối chuỗi
+- includes(searchString[, position]): Có chứa chuỗi nào đó hay không?
+- startsWith(searchString[, length]): có bắt đầu với chuỗi searchString
+- endsWith(searchString[, length]): có kết thúc bằng chuỗi searchString
+- indexOf(searchValue[, fromIndex]): Vị trí đầu tiên có searchValue
+- lastIndexOf(searchValue[, fromIndex]): Vị trí cuối cùng có searchValue
+- match(regexp): Liên quan tới regular expresion (Tạm bỏ qua)
+- matchAll(regexp): Liên quan tới regular expresion (Tạm bỏ qua)
+- padStart(targetLength [, padString]): Thêm vào đầu String
+- padEnd(targetLength [, padString]): Thêm vào cuối String
+- repeat(count): Nhân chuỗi hiện tại lên count lần
+- replace(searchFor, replaceWith): Thay thế chuỗi searchFor đầu tiên bằng chuỗi replaceWith
+- replaceAll(searchFor, replaceWith): Thay thế tất cả chuỗi searchFor bằng chuỗi replaceWith
+- slice(beginIndex [, endIndex]): Lấy chuỗi con
+- substring(indexStart [, indexEnd]): Lấy chuỗi con
+- split([sep [, limit]]): Tách chuỗi thành các mảng con của chuỗi
+- trim(): Bỏ khoảng trắng đầu + cuối string
+- trimStart(): Bỏ khoảng trắng đầu string
+- trimEnd(): Bỏ khoảng trắng cuối string
+- toLowerCase(): Chuyển chuỗi thành chữ viết thường
+- toUpperCase(): Chuyễn chuỗi thành chữ viết hoa
+
+**_Example1: charAt()_**
+
+```JavaScript
+'Easy Frontend'.charAt(0); //E
+'Easy Frontend'.charAt(3); //y
+```
+
+**_Example2: concat - nối chuỗi_**
+
+```JavaScript
+'hh '.concat('Easy'); //hh Easy
+''.concat('Easy', ' ', 'Frontend'); //Easy Frontend
+```
+
+**_Example3: padStart - padEnd_**
+
+```JavaScript
+'a'.padStart(5, '*'); // ****a
+'ab'.padStart(5, '*'); // ***ab
+'abc'.padStart(5, '*'); // **abc
+
+'a'.padEnd(5, '*'); // a****
+'ab'.padEnd(5, '*'); // ab***
+'abc'.padEnd(5, '*'); // abc**
+```
+
+**_Example4: repeat - nhân chuỗi hiện tại_**
+
+```JavaScript
+'*'.repeat(5); // *****
+```
+
+**_Example5: trim - bỏ khoảng trắng_**
+
+```JavaScript
+'  Easy Frontend       '.trim(); // 'Easy Frontend'
+'  Easy Frontend       '.trimStart(); // 'Easy Frontend       '
+'  Easy Frontend       '.trimEnd(); //'  Easy Frontend'
+```
