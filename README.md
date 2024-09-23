@@ -118,6 +118,52 @@ powerfulVar = {
 
 Để xác định một biến nó đang ở kiểu dữ liệu nào tại thời điểm đó, ta sử dụng : typeof operator
 
+**3, Comparision Operator: Toán tử so sánh**
+
+> - So sánh cùng kiểu dữ liệu
+> - So sánh khác kiểu dữ liệu
+> - So sánh với null/undefined
+
+Có thể lên google tra cứu thêm về Toán tử so sánh của JS => Kết quả của các phép so sánh là boolean
+
+true sẽ lớn hơn false => true > false sẽ ra true
+
+**So sánh khác kiểu dữ liệu**
+
+- Khi so sánh khác kiểu dữ liệu, js sẽ tự động convert giá trị về dạng number để so sánh (vs so sánh ==; !=; >; <; ...)
+
+=> Để hiểu được phần này, bạn cần nắm được khi convert một giá trị nào đó về number thì nó sẽ thành giá trị bao nhiêu
+
+**strict equality (=== and !==)**
+
+Giữ nguyên giá trị (không tự động convert kiểu dữ liệu về dạng number) để so sánh với nhau
+
+- Nếu khác kiểu dữ liệu, lập tức return false
+- Nếu cùng kiểu dữ liệu, thì so sánh như cách thức đã đề cập ở phần so sánh cùng kiểu dữ liệu
+
+NOTE: Nên sử dụng === thay vì == để hạn chế các rủi ro không đáng có. Nếu muốn dùng == thì phải hiểu rõ mình thực sự đang làm
+
+**_Example:_**
+
+```JavaScript
+// So sánh với null/undefined
+
+//non-strict ==, null end undefined equal but not any other value
+null == undefined; //true
+
+//strict check
+null === undefined; //false because they are different type
+
+//other comparisons:
+//null will converter to 0
+//undefined will converter to NaN
+null > 0 //fasle
+null == 0 //false
+null >=0 //true, what?
+// => Trong trường hợp so sánh có dấu == thì null chỉ bằng duy nhất thằng undefined thôi
+// => Trong trường hợp so sánh có dấu lớn bé > thì null sẽ được chuyển đổi về 0. => Hack não vcl =))
+```
+
 ### LESSON 3: FUNCTION IN JS
 
 **1, Function in JS**
@@ -214,3 +260,119 @@ Làm sao để xác định được đâu là truthy hay falsy? Với falsy th�
 | :---- | :-- | :-- | :-- | :-- | :-- | :--- | :-------- | :-- | :----------- |
 
 => Có thể lên google để tra: fulsy value trên javascript để đọc thêm
+
+### LESSON 5: CÂU LỆNH RẼ NHÁNH
+
+**1, if...else**
+
+- condition là một giá trị boolean
+- Nếu condition là kiểu giá trị khác, nó sẽ tự động chuyển đổi về boolean
+- Hạn chế sử dụng else, bỏ được hãy bỏ với if ... return
+- Hạn chế dùng nested if ... else (if else lồng nhau)
+
+**_Example_**
+
+```JavaScript
+//GOOD
+if(condition) doSomething();
+
+//GOOD
+if(condition){
+    doSomething();
+    doSomethingElse();
+}
+
+//OK
+if(condition){
+    doSomething();
+}
+else{
+    doSomethingElse();
+}
+
+//BAD
+if(condition){
+    doSomething();
+}
+else if(anothercondition){
+    doSomethingAnother();
+}
+else{
+    doSomethingFinally();
+}
+
+//Avoid to use nested if
+if(condition1){
+    if(condition2){
+        doSomething();
+    }
+    else{
+        doSomethingElse();
+    }
+}
+```
+
+**2, switch...case**
+
+- Giống với cú pháp trong C++
+
+```JavaScript
+switch(condition){
+    case value1:
+        doSomething();
+        break;
+    case vale2:
+        doSomething2();
+        break;
+    default:
+        doSomething3();
+}
+```
+
+### LESSON 6: MỘT SỐ KỸ THUẬT ĐẶC BIỆT
+
+**1, Kỹ thuật đặt cờ hiệu (Flag)**
+
+- Với kỹ thuật này, ta sẽ đặt một biến làm cờ hiệu, biến này có thể nhận 2 giá trị true/false, sau đó duyệt qua lần lượt các điều kiện để quyết định giá trị cuối cùng của biến.
+
+**_Example:_**
+
+```JavaScript
+function isPositiveEvenNumber(n){
+    let isValid; //undefined
+
+    //checking ...
+    if(n>0 && n%2 === 0){
+        isValid = true;
+    }
+    else{
+        isValid = false
+    }
+
+    return isValid;
+}
+
+console.log(isPositiveEvenNumber(5));
+```
+
+**2, Kỹ thuật lính canh**
+
+- Về cơ bản ý tưởng cũng giống như kỹ thuật đặt cờ hiệu. Khác ở chỗ là biến được đặt có thể là bất cứ loại giá trị nào chứ không phải chỉ true/false.
+
+**_Example:_**
+
+```JavaScript
+function classifyStudent(mark){
+    let result;
+
+    //checking ...
+    if(mark > 8) result = 'Excellence';
+    else if(mark >= 7 ) result = 'Good';
+    else if (mark >= 4) result = 'Not Good';
+    else result = 'Bad';
+
+    return result;
+}
+```
+
+### LESSON 7: NUMBER
