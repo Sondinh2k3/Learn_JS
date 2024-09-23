@@ -375,4 +375,120 @@ function classifyStudent(mark){
 }
 ```
 
-### LESSON 7: NUMBER
+### LESSON 7: NUMBER and MATH
+
+**1, Giới thiệu về kiểu number**
+
+- Có 2 loại số:
+  _ Interger (int): số nguyên (1, 2, 3, ...)
+  _ Float (float): số thực (1.5, 2.5, 3.7, ...). Dùng dấu chấm để ngăn cách phần thập phân
+- Lưu ý: JavaScript chỉ có một kiểu dữ liệu là number dùng cho cả số nguyên và số thực
+- Number trong JS được lưu dưới dạng double-precision 64-bit binary format IEE754.
+
+**toString(base)**
+
+```JavaScript
+const n = 20;
+n.toString(); //'20' (default is 10)
+n.toString(10); //'20' Decimal
+n.toString(16); //'14' Hexadecimal
+n.toString(8); //'24' Octal
+n.toString(2); //'10100' Binary
+```
+
+**2, Object Number**
+
+- Mỗi một kiểu dữ liệu primitive (nguyên thủy) ở trong JS thì nó sẽ có một cái Wrapper object để cung cấp những cái hằng số, hoặc những cái hàm mà nó liên quan tới cái kiểu dữ liệu mình đang làm việc
+- Ví dụ: với Number, khi sử dụng nó như một function: Number(value) ===> Nó sẽ cố gắng chuyển đổi value từ các kiểu dữ liệu khác sang kiểu Number.
+
+**_Example:_**
+
+```JavaScript
+Number(123); //123
+Number('123'); //123
+Number('abc); //NaN
+```
+
+**Number properties**
+
+- Number.EPSILON ===> value = 2.220446049250313e-16: Độ chênh lệch nhỏ nhất giữa 2 số
+- Number.MIN_VALUE ===> value = 5e-324: Số dương nhỏ nhất (gần tới số 0)
+- Number.MAX_VALUE ===> value = 1.7976931348623157e+308: Số dương lớn nhất
+- Number.MIN_SAFE_INTERGER ===> -(2^53 - 1)
+- Number.MAX_SAFE_INTERGER ===> 2^53 - 1
+- Number.NaN ===> value = NaN: Not a Number
+- Number.NEGATIVE_INFINITY: Âm vô cùng
+- Number.POSITIVE_INFINITY: Dương vô cùng
+
+**Converts to Number (ParseInt and ParseFloat)**
+
+Đối với ParseInt và ParseFloat, trình biên dịch sẽ thực hiện đọc từ đầu tới cuối, đến chỗ không hợp lệ để chuyển đổi thì sẽ dừng. Còn đối với Number() thì nếu tham số truyền vào không hợp lệ, sẽ trả về NaN ngay
+
+```JavaScript
+    Number('123'); //123
+     Number.ParseInt('1.5'); //1
+     Number.ParseFloat('1.5'); //1.5
+
+     Number('123.5a'); //NaN
+     Number.ParseInt('123.5a'); //123
+     Number.ParseFloat('123.5a'); //123.5
+
+     Number(null); //0
+     Number(undefined); //NaN
+
+     Number(true); //1
+     Number(false); //0
+```
+
+**Phân biệt toFixed() và toPrecision()**
+
+     * toFixed() và toPrecision() đều chuyển từ number thành string
+     * toFixed(digits) thì cố định số lượng digits sau dấu chấm
+     * toPrecision(digits) thì làm tròn tới digits số có nghĩa
+
+```JavaScript
+const n = 123.525;
+     n.toFixed(); //124
+     n.toFixed(0); //124
+     n.toFixed(1); //123.5
+     n.toFixed(2); //123.53
+     n.toFixed(3); //123.525
+     n.toFixed(4); //123.5250
+     n.toFixed(5); //123.52500
+
+
+     n.toPrecision(); //123.525 similar to toString();
+     n.toPrecision(0); //error argument must be between 1 to 100
+     n.toPrecision(1); //100
+     n.toPrecision(2); //120
+     n.toPrecision(3); //124
+     n.toPrecision(4); //123.5
+     n.toPrecision(5); //123.53
+     n.toPrecision(6); //123.525
+     n.toPrecision(7); //123.5250
+     n.toPrecision(8); //123.52500
+```
+
+**3, Math**
+
+Math - Built - in objects for mathematical constants and functions
+
+- Math is a built-in object that has properties and methods for mathematical constants and functions. It's not a function object
+
+**Các props phổ biến:**
+
+- Math.PI: Gía trị của PI, khoảng 3.14159
+- Math.SQRT2: Giá trị của căn bậc 2 của 2 ~ 1.414
+
+**Các methods phổ biến:**
+
+- Math.ceil(x): Làm tròn lên số nguyên gần nhất
+- Math.floor(x): Làm tròn xuống số nguyên gần nhất
+- Math.round(x): Làm tròn tới số nguyên gần nhất
+- Math.trunc(x): Hàm lấy phần nguyên, bỏ phần thập phân
+- Math.random(x): Random số thực từ 0 --> 1
+- Math.abs(x): Lấy giá trị tuyệt đối
+- Math.pow(x, y): Hàm lũy thừa x^y
+- Math.sqrt(x): Hàm lấy căn bậc 2 của x
+
+LƯU Ý: Math chỉ làm việc với kiểu Number, chứ không làm việc với kiểu BigInt
