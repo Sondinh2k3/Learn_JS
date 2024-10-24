@@ -612,3 +612,372 @@ _b, Instance Method:_
     name.indexOf('o'); //4
     name.lastIndexOf('o'); //7
 ```
+
+**_Example9: Kiểm tra chữa chuỗi con_**
+
+```JavaScript
+    const name = 'Easy and Frontend';
+
+    name.startsWith('easy'); //false
+    name.startsWith('Easy'); //true
+    name.startsWith('and'); //false
+
+    name.includes('Easy'); //true
+    name.includes('and'); //true
+    name.includes('Frontend'); //true
+
+    name.endsWith('Frontend'); //true
+    name.endsWith('and'); //false
+    name.endsWith('frontend'); //false
+```
+
+_Làm việc với substring_
+
+- Trong JS có 3 cái hàm, sử dụng 1 trong 3 hàm đều được. Nhưng mà để đỡ rối, nhớ một hàm để sử dụng là **slice** thôi.
+- substr thì theo MDN, nó được đánh dấu là deprecated
+- slice và substring sử dụng khá tương đồng
+- slice thì hỗ trợ số âm. Số âm thì đếm ngược từ cuối chuỗi
+- substring thì xem số âm là số 0.
+- substring cho phép start > end; trong khi slice thì không hỗ trợ
+
+  > - slice(start, end): negative means count from end, start can't be greater than end
+  > - substring(start, end): negative means 0, start can be greater than end
+  > - substr: deprecated as in MDN docs.
+
+**_Example 1: slice(start, end)_**
+
+```JavaScript
+'Easy Frontend'.slice(0, 4); //Easy
+'Easy Frontend'.slice(2); //sy Frontend
+
+'Easy Frontend'.slice(-3); //end
+'Easy Frontend'.slice(-3, -1); //en
+//===> slice không lấy giá trị end, mà chỉ lấy từ start ---> end - 1
+```
+
+**_Example 2: substring(start, end)_**
+
+```JavaScript
+'Easy Frontend'.substring(0, 4); //Easy
+'Easy Frontend'.substring(2); //sy Frontend
+
+'Easy Frontend'.substring(-3); //Easy Frontend
+'Easy Frontend'.substring(-3, -1); // ''
+// ===> substring xem số âm như số 0
+```
+
+**_Example 3: slice và substring khi start>end_**
+
+```JavaScript
+'Easy Frontend'.slice(4, 0); //''
+'Easy Frontend'.substring(4, 0); //Easy
+```
+
+_Tìm kiếm và thay thế chuỗi_
+
+1. replace (searchFor, replaceWith): Tìm kiếm và thay thế một searchFor bởi replaceWith
+
+2. replaceAll(searchFor, replaceWith): Tìm kiếm và thay thế tất cả searchFor bởi replaceWith
+
+**_Example: _**
+
+```JavaScript
+'easy frontend'.replace(' ', '-'); //easy-frontend
+'easy frontend'.replace(' ', ''); //easyfrontend
+
+'easy frontend'.replace('easy', 'Easy'); //Easy frontend
+'easy frontend'.replace('easy', ''); //' frontend'
+
+//replace the first match only
+'easy easy frontend'.replace('easy', ''); //' easy frontend'
+
+//replace all
+'easy easy frontend'.replaceAll('easy', ''); //'  frontend'
+```
+
+_Split va Join:_
+
+> - string to array: split();
+> - array to string: join();
+
+**1. split();**
+
+    - Hàm dùng để phân tách chuỗi hiện tại thành một mảng các chuỗi con
+
+**2. join();**
+
+    - Hàm dùng để gộp các item của 1 mảng thành một chuỗi
+
+```JavaScript
+//split
+'easy'.split(); //['easy']
+'easy'.split(' '); //['easy']
+'easy'.split('-'); //['easy']
+'easy'.split('as'); //['e', 'y']
+
+
+'easy'.split(''); //['e', 'a', 's', 'y']
+
+//count words
+const name1 = 'Easy frontend';
+const words = name1.split(' '); //['Easy', 'frontend']
+console.log(words.length); //2
+
+//join
+const words1 = ['Easy', 'frontend'];
+words1.join(); // 'Easy,frontend'
+words1.join(''); // 'Easyfrontend'
+words1.join(' '); // 'Easy frontend'
+words1.join('-'); // 'Easy-frontend'
+```
+
+### LESSON 9: OBJECT
+
+**1. Tổng quan về object**
+
+**_- Khai báo object:_**
+
+- Với các loại dữ liệu mình đã biết như number, string, boolean, nó chỉ là một giá trị đơn giản.
+- Nhưng với object là kiểu dữ liệu có thể chứa nhiều dữ liệu khác nhau thông qua các cặp key, value
+- value có thể là kiểu dữ liệu bất kỳ: number, string, boolean, object, array, function, ...
+
+_Ví dụ:_
+
+```JavaScript
+object syntax{
+key1: value1,
+key2: value2,
+...
+}
+```
+
+**_- Lấy value của key:_**
+
+- Dùng dot operator để truy cập key của object
+- Dùng square brackets (dấu ngoặc vuông) để truy cập dynamic key của object, kể cả key có space
+
+```JavaScript
+const student = {
+    id: 1,
+    name: 'sondinh',
+    name: 'dinhson', //same key come later will take precedence
+    isHero: true,
+    'key has space': 'supper', //key with spaces should be wrapped in quotes
+
+    sayHi(){
+        console.log('Hello');
+    }
+}
+
+console.log(student.name);
+console.log(student['key has space']); //supper
+
+//Thêm key mới cho object:
+const student1 = {
+    id: 1,
+    name: 'Van A',
+    isHero: true,
+}
+//update value of key
+student1.name = 'Van B';
+//simply set new key for object
+student1.age = 18;
+student1['mark'] = 10;
+
+
+//Xóa một key
+//Để xóa một key ra khỏi object hiện tại, dùng delete operator
+delete student1.name;
+```
+
+**2. Thao tác cơ bản với Object**
+
+_a. Đặt tên cho key của object_
+
+```JavaScript
+const student = {
+    name: 'Easy Frontend',
+    const: 'haha',
+    function: 'its work',
+    true: 'work too',
+}
+
+//Viết tắt: Shorthand
+const Name = 'Easy Frontend';
+const age = 18;
+
+const student1 = {
+    Name, //tên key và tên value giống nhau
+    age,
+}
+```
+
+_b. Object destructuring_
+
+```JavaScript
+//old way
+const name = student.name;
+const age = student.age;
+//new way usign object destructuring
+const {name, age} = student;
+
+```
+
+_c. Ktra key có trong object hay không_
+
+```JavaScript
+const xehoi = {
+    color: 'red',
+    weight: 555,
+    speed: 123,
+}
+'name' in xehoi; //false
+'color' in xehoi; //true
+```
+
+_d. Clone Object_
+
+```JavaScript
+const student = {
+    name: 'Easy Frontend',
+    age = 18,
+}
+
+const moreProps = {
+    isHero: true,
+    gender: 'male',
+}
+//v1: Using Object.assign()
+const clonedStudent = Object.assign({}, student, moreProps);
+//v2: Using spread operator (shorter, easier to read)
+const cloneStudent2 = {
+    ...student,
+    ...moreProps,
+}
+```
+
+_e. Deep Clone Object_
+
+```JavaScript
+const student = {
+    name: 'Easy Frontend',
+    age: 18,
+
+    mark: {
+        math: 10,
+        english: 7,
+    }
+}
+
+const clonedStudent = {
+    ...student,
+}
+cloneStudent.mark.math = 1;
+console.log(student.mark.math); //1 :)) haha
+//Tức là nếu ta clone như thông thường thì nó chỉ clone được các kiểu primitive type thôi
+//còn các kiểu như object bên trong thì nó sẽ tham chiếu đến. Nên nếu ta thay đổi bản clone thì bản chính cũng bị thay đổi
+//lúc này sinh ra một kiểu mới: đó là deep clone ===> tạo ra một bản sao hoàn toàn mới
+const clonedStudent = {
+    ...student,
+    mark: {
+        ...student.mark,
+    }
+}
+cloneStudent.mark.math = 1;
+console.log(student.mark.math); //10
+```
+
+**3. Duyệt key của Object**
+
+- Nên dùng for ... in để duyệt keys của object
+
+```JavaScript
+const student = {
+    id: 1,
+    name: 'Van A',
+    isHero: true,
+}
+//Duyệt:
+const keyList = Object.keys(student); // ['id', 'name', 'isHero']
+for(let i=0; i<keyList.length; i++){
+    const key = keyList[i];
+
+    console.log('key: ', key); //id, name, isHero
+    console.log('Value: ', student[key]); //1, Van A, true
+}
+
+//or a similar way using foreach
+Object.keys(student).forEach(key => {
+    console.log('key: ', key); //id, name, isHero
+    console.log('Value: ', student[key]); //1, Van A, true
+})
+
+//recommend: for ... in
+for(let key in student){
+    console.log('key: ', key); //id, name, isHero
+    console.log('Value: ', student[key]); //1, Van A, true
+}
+```
+
+### LESSON 10: THAM TRỊ VÀ THAM CHIẾU
+
+- Tham trị (Primitive Type/Value Type) ===> Thường dùng trong các kiểu dữ liệu như: boolean, number, string, null, undefined, symbol
+- Tham chiếu (Reference Type) ===> - Tham chiếu thường áp dụng đối với các kiểu dữ liệu phức tạp như: object, array, function
+
+**1. Phép gán với Object**
+
+```JavaScript
+//primitive type
+const a = 5;
+let b = a;
+b = 10;
+console.log(a); //5
+
+//reference type
+const student1 = {name: 'Easy Frontend', };
+const student2 = student1;
+student2.name = 'Son Dinh';
+
+console.log(studen1.name); //Son Dinh ???
+```
+
+**2. So sánh Object**
+
+- Khi so sánh tham chiếu (Object, array, function) thì địa chỉ tham chiếu sẽ được đem ra so sánh. Nếu cùng trỏ về một địa chỉ tham chiếu thì sẽ trả về true, còn lại là false
+
+```JavaScript
+student1 === student2; //true as they both point to the same reference
+
+const student3 = {name: 'Easy Frontend', };
+const student4 = {name: 'Easy Frontend', };
+student3 === student4; //false as they are difference refs
+```
+
+**3. Pass by values vs pass by reference**
+
+```JavaScript
+function changePrimitive(name1, age1){
+    name1 = 'Easy Frontend';
+    age1 = 18;
+}
+let name1 = 'Easy';
+let age1 = 17;
+changePrimitive(name1, age1);
+console.log(name1); //Easy
+console.log(age1); //17
+
+
+function changeReference(student){
+    student.name = 'Easy Frontend';
+    student.age = 18;
+}
+const student5 = {
+    name: 'Easy',
+    age: 17,
+
+}
+
+changeReference(student5);
+console.log(student5.name);  //Easy Frontend
+console.log(student5.age);  //18
+```

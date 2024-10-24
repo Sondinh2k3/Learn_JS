@@ -43,7 +43,7 @@ const student1 = {name: 'Easy Frontend', };
 const student2 = student1;
 student2.name = 'Son Dinh';
 
-console.log(studen1.name); //Son Dinh ???
+console.log(student1.name); //Son Dinh ???
 
 //-------------------- So sánh Object ---------------------------------------------------
 // Khi so sánh tham chiếu (Object, array, function) thì địa chỉ tham chiếu sẽ được đem ra so sánh. Nếu
